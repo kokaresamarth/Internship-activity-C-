@@ -1,0 +1,512 @@
+    /*Intership activity - <Day 1>
+  
+Write a C++ program to check overflow/underflow during various arithmetic operations.
+Sample Output:
+Check overflow/underflow during various arithmetical operation:
+Range of int is [-2147483648, 2147483647]
+Overflow the integer range and set in minimum range: -2147483648
+Increasing from its minimum range: -2147483647
+Product is :1
+Underflow the range and set in maximum range: 2147483647
+Decreasing from its maximum range: 2147483646
+Product is: 0
+
+ 
+#include <iostream> 
+using namespace std; 
+int main() 
+{
+    int n1;
+    cin>>n1;
+    cout <<" Overflow the integer range and set in minimum range : " << n1 + 1 << endl; 
+    cout <<" Increasing from its minimum range : " << n1 + 2 << endl; 
+    cout <<" Product is :" << n1 * n1 << endl; 
+
+    int n2;
+    cin>>n2;
+    cout <<" Underflow the range and set in maximum range : " << n2 - 1 << endl; 
+    cout <<" Decreasing from its maximum range : " << n2 - 2 << endl; 
+    cout <<" Product is : " << n2 * n2 << endl; 
+    cout << endl; 
+    return 0; 
+} 
+
+Output:
+Overflow the integer range and set in minimum range : -2147483648     
+ Increasing from its minimum range : -2147483647                       
+ Product is :1                                                         
+ Underflow the range and set in maximum range : 2147483647             
+ Decreasing from its maximum range : 2147483646                        
+ Product is : 0
+
+
+ Write a program in C++ that converts kilometers per hour to miles per hour.
+Sample Output:
+Convert kilometers per hour to miles per hour :
+----------------------------------------------------
+Input the distance in kilometer : 25
+The 25 Km./hr. means 15.5343 Miles/hr.
+
+#include<iostream> 
+using namespace std;
+int main() 
+{
+    float kmph, miph; 
+    cin >> kmph; 
+    miph = (kmph * 0.6213712); 
+    cout << " The " << kmph << " Km./hr. means " << miph << " Miles/hr." << endl;
+    cout << endl; 
+    return 0; 
+}
+
+Input the distance in kilometer : 25                                   
+ The 25 Km./hr. means 15.5343 Miles/hr.
+
+
+Q3. Write a program in C++ to convert temperature in Kelvin to Fahrenheit.
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{
+    float kel, frh; 
+    cin >> kel; 
+    frh = (9.0 / 5) * (kel - 273.15) + 32; 
+    cout << " The temperature in Kelvin    : " << kel << endl; 
+    cout << " The temperature in Fahrenheit : " << frh << endl; 
+    cout << endl;
+    return 0; 
+}
+
+373
+ The temperature in Kelvin    : 373
+ The temperature in Fahrenheit : 211.73
+
+
+
+Q4. Write C++ Program do following task
+1. Largest of 3 nos using conditional op
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a,b,c;
+    cin>>a>>b>>c;
+    if (a >= b) {
+        if (a >= c)
+            cout << a;
+        else
+            cout << c;
+    }
+    else {
+        if (b >= c)
+            cout << b;
+        else
+            cout << c;
+    }
+
+    return 0;
+}
+Output:
+2
+3
+4
+
+4
+
+2. Largest of 2 nos without branching
+
+#include<iostream>
+using std::cout;
+using std::endl;
+
+int findMax(int x, int y)
+{
+    return x ^ ((x ^ y) & -(x < y));
+}
+int main()
+{
+    int x = 15;
+    int y = 6;
+    cout<<"Maximum of "<<x <<" and "<<y<<" is ";
+    const int maxValue = findMax(x,y);
+    cout<<maxValue<<endl;
+    return 0;
+}
+
+Maximum of 15 and 6 is 15
+
+3. To check for equality of two numbers without using arithmetic or comparison operator
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int A,B;
+	cin>>A>>B;
+	int diff = A - B;
+    if(diff)
+	   cout<<"No";
+    else
+	   cout<<"Yes";
+	return 0;
+}
+
+4
+5
+No
+
+4. Print “Welcome” without using semicolon in c/c++
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    if (cout << "Welcome") {} 
+    return 0;
+}
+
+Welcome
+
+5. To check if the given number is even without using arithmetic or relational operators.
+#include <iostream>
+using namespace std;
+bool isEven(int n)
+{
+	return ((n / 2) * 2 == n);
+}
+int main()
+{
+	int n;
+	cin>>n;
+	isEven(n) ? cout << "Even" : cout << "Odd";
+	return 0;
+}
+
+60
+Even
+51
+Odd
+
+6. Print grade using switch case
+#include <iostream>
+using namespace std;
+
+// Grades Program Switch
+
+int main()
+{
+    int score;
+    
+    cout << "Please enter a score: ";
+    cin >> score;
+    
+    switch (score)
+    {
+        case 'A': (score == 100);
+            cout << "\nYou got an A\n";
+            break;
+        
+        case 'B': (score < 99 && score >= 90);
+            cout << "\nYou got an B\n";
+            break;
+            
+        case 'C': (score < 90 && score >= 80);
+            cout << "\nYou got a C\n";
+            break;
+            
+        case 'D': (score < 80 && score >= 70);
+            cout << "\nYou got a D\n";
+            break;
+        case 'E': (score<70);
+            cout<<"\n You got a E\n";
+            break;
+
+    }
+            
+    return 0;
+}
+
+Please enter a score: 100
+You got an A
+
+
+
+Q5. Write C++ Program do following task
+1. Convert Hex number to binary
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i=0;
+    char hexDecNum[10];
+    cout<<"Enter the Hexadecimal Number: ";
+    cin>>hexDecNum;
+    cout<<"\nEquivalent Binary Value = ";
+    while(hexDecNum[i])
+    {
+        switch(hexDecNum[i])
+        {
+            case '0':
+                cout<<"0000";
+                break;
+            case '1':
+                cout<<"0001";
+                break;
+            case '2':
+                cout<<"0010";
+                break;
+            case '3':
+                cout<<"0011";
+                break;
+            case '4':
+                cout<<"0100";
+                break;
+            case '5':
+                cout<<"0101";
+                break;
+            case '6':
+                cout<<"0110";
+                break;
+            case '7':
+                cout<<"0111";
+                break;
+            case '8':
+                cout<<"1000";
+                break;
+            case '9':
+                cout<<"1001";
+                break;
+            case 'A':
+            case 'a':
+                cout<<"1010";
+                break;
+            case 'B':
+            case 'b':
+                cout<<"1011";
+                break;
+            case 'C':
+            case 'c':
+                cout<<"1100";
+                break;
+            case 'D':
+            case 'd':
+                cout<<"1101";
+                break;
+            case 'E':
+            case 'e':
+                cout<<"1110";
+                break;
+            case 'F':
+            case 'f':
+                cout<<"1111";
+                break;
+            default:
+                cout<<"--Invalid Hex Digit ("<<hexDecNum[i]<<")--";
+        }
+        i++;
+    }
+    cout<<endl;
+    return 0;
+}
+Enter the Hexadecimal Number: 1bc6
+
+Equivalent Binary Value = 0001101111000110
+
+2. Quadratic equation solving
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+    float a, b, c, x1, x2, discriminant, realPart, imaginaryPart;
+    cout << "Enter coefficients a, b and c: ";
+    cin >> a >> b >> c;
+    discriminant = b*b - 4*a*c;
+    
+    if (discriminant > 0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        x2 = (-b - sqrt(discriminant)) / (2*a);
+        cout << "Roots are real and different." << endl;
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+    
+    else if (discriminant == 0) {
+        cout << "Roots are real and same." << endl;
+        x1 = -b/(2*a);
+        cout << "x1 = x2 =" << x1 << endl;
+    }
+
+    else {
+        realPart = -b/(2*a);
+        imaginaryPart =sqrt(-discriminant)/(2*a);
+        cout << "Roots are complex and different."  << endl;
+        cout << "x1 = " << realPart << "+" << imaginaryPart << "i" << endl;
+        cout << "x2 = " << realPart << "-" << imaginaryPart << "i" << endl;
+    }
+
+    return 0;
+}
+Enter coefficients a, b and c: 4
+5
+6
+Roots are complex and different.
+x1 = -0.625+1.05327i
+x2 = -0.625-1.05327i
+
+3. Hexadecimal to decimal
+#include <bits/stdc++.h>
+using namespace std;
+int hexadecimalToDecimal(string hexVal)
+{
+    int len = hexVal.size();
+    int base = 1;
+
+    int dec_val = 0;
+    for (int i = len - 1; i >= 0; i--) {
+        if (hexVal[i] >= '0' && hexVal[i] <= '9') {
+            dec_val += (int(hexVal[i]) - 48) * base;
+            base = base * 16;
+        }
+        else if (hexVal[i] >= 'A' && hexVal[i] <= 'F') {
+            dec_val += (int(hexVal[i]) - 55) * base;
+            base = base * 16;
+        }
+    }
+    return dec_val;
+}
+int main()
+{
+    string hexNum = "1A";
+    cout << (hexadecimalToDecimal(hexNum));
+    return 0;
+}
+
+output: 
+26
+
+4. Decimal to hexa
+#include <iostream>
+using namespace std;
+string decToHexa(int n)
+{
+    string ans = "";
+    while (n != 0) {
+        int rem = 0;
+        char ch;
+        rem = n % 16;
+        if (rem < 10) {
+            ch = rem + 48;
+        }
+        else {
+            ch = rem + 55;
+        }
+        ans += ch;
+        n = n / 16;
+    }
+    int i = 0, j = ans.size() - 1;
+    while(i <= j)
+    {
+      swap(ans[i], ans[j]);
+      i++;
+      j--;
+    }
+    return ans;
+}
+int main()
+{
+    int n = 2545;
+
+    cout << decToHexa(n);
+
+    return 0;
+}
+
+Output:
+9F1
+
+5. Find square root of a number without using sqrt fun
+
+#include <bits/stdc++.h>
+using namespace std;
+
+double findSqrt(double x)
+{
+	if (x < 2)
+		return x;
+	double y = x;
+	double z = (y + (x / y)) / 2;
+	while (abs(y - z) >= 0.00001) {
+		y = z;
+		z = (y + (x / y)) / 2;
+	}
+	return z;
+}
+
+int main()
+{
+
+	double n = 6;
+
+	double ans = findSqrt(n);
+	cout << setprecision(6) << ans
+		<< " is the square root of 6" << endl;
+	return 0;
+}
+
+  2.44949 is the square root of 6
+
+6. print series using structure
+
+
+1 s
+2 s t
+3 s i
+4 s t
+5 s
+6 s t i
+7 s
+8 s t
+9 s i
+10 s t 
+
+#include <iostream>
+using namespace std;
+struct Series {
+    char s = 's';
+    char t = 't';
+    char i = 'i';
+};
+
+int main() {
+    Series series; 
+    for (int n = 1; n <= 10; n++) {
+        cout << n << " " << series.s; 
+        if (n % 2 == 0) {
+            cout << " " << series.t;
+        }
+        if (n % 3 == 0) {
+            cout << " " << series.i;
+        }
+        cout << endl; 
+    }
+
+    return 0;
+}
+
+
+7. Print numbers from 1 to 10 without using loops or goto statements
+
+#include <stdio.h>
+int main()
+{
+	static int i = 1;
+	if (i <= 10) {
+		printf("%d ", i++);
+		main();
+	}
+	return 0;
+}
+
+1 2 3 4 5 6 7 8 9 10 

@@ -1,0 +1,310 @@
+*Internship activity - <Day 6>
+  Project: Rapid Vision Measuring System.
+  Task: <C++ activity>
+  Compiler:Windows 10
+  IDE:VS Code
+   
+
+Q1. C++ program to find the value of Addition of two matrices.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int r, c, a[100][100], b[100][100], sum[100][100], i, j;
+
+    cout << "Enter number of rows (between 1 and 100): ";
+    cin >> r;
+
+    cout << "Enter number of columns (between 1 and 100): ";
+    cin >> c;
+
+    cout << endl << "Enter elements of 1st matrix: " << endl;
+
+    // Storing elements of first matrix entered by user.
+    for(i = 0; i < r; ++i)
+       for(j = 0; j < c; ++j)
+       {
+           cin >> a[i][j];
+       }
+
+    // Storing elements of second matrix entered by user.
+    cout << endl << "Enter elements of 2nd matrix: " << endl;
+    for(i = 0; i < r; ++i)
+       for(j = 0; j < c; ++j)
+       {
+           cin >> b[i][j];
+       }
+
+    // Adding Two matrices
+    for(i = 0; i < r; ++i)
+        for(j = 0; j < c; ++j)
+            sum[i][j] = a[i][j] + b[i][j];
+
+    // Displaying the resultant sum matrix.
+    cout << endl << "Sum of two matrix is: " << endl;
+    for(i = 0; i < r; ++i)
+        for(j = 0; j < c; ++j)
+        {
+            cout << sum[i][j] << "  ";
+            if(j == c - 1)
+                cout << endl;
+        }
+
+    return 0;
+}
+
+Output:
+Enter number of rows (between 1 and 100): 3
+Enter number of columns (between 1 and 100): 3
+
+Enter elements of 1st matrix:
+1 2 3
+4 5 6 
+7 8 9
+
+Enter elements of 2nd matrix:
+2 4 6
+1 2 3
+5 4 1
+
+Sum of two matrix is:
+3  6  9
+5  7  9
+12  12  10
+
+
+Q2. C++ program to find 
+    Given two integer arrays nums1 and nums2, return an array of their 
+intersection Each element in the result must be unique and you may return the result in any order.
+
+Example 1:
+
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+Example 2:
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+Explanation: [4,9] is also accepted.
+ 
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n1, n2;
+    
+    // Take input for the size of both arrays
+    cout << "Enter the size of the first array: ";
+    cin >> n1;
+    int nums1[n1];
+    
+    cout << "Enter the elements of the first array: ";
+    for (int i = 0; i < n1; i++) {
+        cin >> nums1[i];
+    }
+    
+    cout << "Enter the size of the second array: ";
+    cin >> n2;
+    int nums2[n2];
+    
+    cout << "Enter the elements of the second array: ";
+    for (int i = 0; i < n2; i++) {
+        cin >> nums2[i];
+    }
+    
+    // Intersection array (maximum size is min(n1, n2))
+    int intersection[n1 < n2 ? n1 : n2]; // Maximum possible size
+    int count = 0;  // Keeps track of the number of unique intersection elements
+    
+    // Loop through nums1 and find common elements in nums2
+    for (int i = 0; i < n1; i++) {
+        for (int j = 0; j < n2; j++) {
+            // If nums1[i] is found in nums2
+            if (nums1[i] == nums2[j]) {
+                // Check if nums1[i] is already in the intersection array
+                int alreadyAdded = 0;
+                for (int k = 0; k < count; k++) {
+                    if (intersection[k] == nums1[i]) {
+                        alreadyAdded = 1;
+                        break;
+                    }
+                }
+
+                // If not already in intersection array, add it
+                if (alreadyAdded == 0) {
+                    intersection[count] = nums1[i];
+                    count++;
+                }
+                break; // No need to check further for this nums1[i]
+            }
+        }
+    }
+    
+    // Output the intersection
+    cout << "Intersection of the arrays: ";
+    for (int i = 0; i < count; i++) {
+        cout << intersection[i] << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
+
+Output:
+Enter the size of the first array: 4
+Enter the elements of the first array: 1 2 3 4
+Enter the size of the second array: 5
+Enter the elements of the second array: 3 4 6 7 8
+Intersection of the arrays: 3 4 
+
+
+Q3.Given an integer N, find all possible pairs of A and B, such that A+B = N and A and b
+are both natural numbers for example- N = 5 so output is 4 as (1,4),(2,3),(3,2),(4,1) 
+gives the same number after addition
+*/
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    int count = 0;
+    for(int i=0;i<=n/2;i++)
+    {
+        for(int j=n/2;j<n;j++)
+        {
+            if(i+j==n){
+                count++;
+            }
+        }
+    }
+    if(n%2==0){
+        cout<<2*count-1;
+    }
+    else
+    {
+        cout<<2*count;
+    }
+    return 0;
+}
+
+Output:
+Enter the number n: 8
+count= 7
+
+
+Q4.c++ program to find the maximum and minimum element in the array.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+    
+    cout << "Enter elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    int largest = arr[0], smallest = arr[0];
+    
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > largest) largest = arr[i];
+        if (arr[i] < smallest) smallest = arr[i];
+    }
+    
+    cout << "Largest element: " << largest << endl;
+    cout << "Smallest element: " << smallest << endl;
+    
+    return 0;
+}
+
+Output:
+Enter the size of the array: 5
+Enter elements of the array: 1 2 3 7 8
+Largest element: 8
+Smallest element: 1
+
+
+Q5. C++ program to find the value of Transpose of a matrix.
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+   int a[10][10], transpose[10][10], row, column, i, j;
+
+   cout << "Enter rows and columns of matrix: ";
+   cin >> row >> column;
+
+   cout << "\nEnter elements of matrix: " << endl;
+
+   // Storing matrix elements
+   for (int i = 0; i < row; ++i) {
+      for (int j = 0; j < column; ++j) {
+         cout << "Enter element a" << i + 1 << j + 1 << ": ";
+         cin >> a[i][j];
+      }
+   }
+
+   // Printing the a matrix
+   cout << "\nEntered Matrix: " << endl;
+   for (int i = 0; i < row; ++i) {
+      for (int j = 0; j < column; ++j) {
+         cout << " " << a[i][j];
+         if (j == column - 1)
+            cout << endl << endl;
+      }
+   }
+
+   // Computing transpose of the matrix
+   for (int i = 0; i < row; ++i)
+      for (int j = 0; j < column; ++j) {
+         transpose[j][i] = a[i][j];
+      }
+
+   // Printing the transpose
+   cout << "\nTranspose of Matrix: " << endl;
+   for (int i = 0; i < column; ++i)
+      for (int j = 0; j < row; ++j) {
+         cout << " " << transpose[i][j];
+         if (j == row - 1)
+            cout << endl << endl;
+      }
+
+   return 0;
+}
+
+Output:
+Enter rows and columns of matrix: 2
+3
+
+Enter elements of matrix:
+Enter element a11: 1
+Enter element a12: 2
+Enter element a13: 9
+Enter element a21: 0
+Enter element a22: 4
+Enter element a23: 7
+
+Entered Matrix:
+1  2  9
+
+0  4  7
+
+
+Transpose of Matrix:
+1  0
+
+2  4
+
+9  7

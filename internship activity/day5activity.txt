@@ -1,0 +1,301 @@
+*Internship activity - <Day 5>
+  Project: Rapid Vision Measuring System.
+  Task: <C++ activity>
+  Compiler:Windows 10
+  IDE:VS Code
+   
+
+Q1. C++ program to find the value of sin,cos,tan,asin,acos,atan,cosh,tanh.
+*/
+
+#include <iostream> 
+#include <math.h> 
+using namespace std; 
+
+int main() 
+{ 
+	double x;
+	cout<<"Enter the value of x: ";
+	cin>>x;
+	cout << "Sine value of x "
+		<< sin(x) << endl; 
+	cout << "Cosine value of x "
+		<< cos(x) << endl; 
+	cout << "Tangent value of x "
+		<< tan(x) << endl; 
+
+	cout << "Arc Cosine value of x "
+		<< acos(x) << endl; 
+	cout << "Arc Sine value of x "
+		<< asin(x) << endl; 
+	cout << "Arc Tangent value of x "
+		<< atan(x) << endl; 
+		
+	cout << "Hyperbolic Cosine of x "
+		<< cosh(x) << endl; 
+	cout << "Hyperbolic tangent of x "
+		<< tanh(x) << endl; 
+
+	return 0; 
+} 
+
+Output:
+
+Enter the value of x: 1
+Sine value of x 0.841471
+Cosine value of x 0.540302
+Tangent value of x 1.55741
+Arc Cosine value of x 0
+Arc Sine value of x 1.5708
+Arc Tangent value of x 0.785398
+Hyperbolic Cosine of x 1.54308
+Hyperbolic tangent of x 0.761594
+
+
+
+Q2. C++ program to find the value of pow,sqrt,cbrt,hypot.
+
+*/
+
+#include <iostream>
+#include <cmath>  
+using namespace std;
+int main() {
+    
+    double x, y, result;
+
+    cout << "Enter base (x): ";
+    cin >> x;
+    cout << "Enter exponent (y): ";
+    cin >> y;
+    result = pow(x, y);
+    cout << x << " raised to the power of " << y << " is " << result << endl;
+            
+    cout << "Enter a number (x): ";
+    cin >> x;
+    if (x < 0) {
+        cout << "Square root of negative numbers is not defined in real numbers!" << endl;
+    } else {
+        result = sqrt(x);
+        cout << "Square root of " << x << " is " << result << endl;
+    }
+    cout << "Enter a number (x): ";
+    cin >> x;
+    result = cbrt(x);
+    cout << "Cubic root of " << x << " is " << result << endl;
+            
+    cout << "Enter side 1 (x): ";
+    cin >> x;
+    cout << "Enter side 2 (y): ";
+    cin >> y;
+    result = hypot(x, y);
+    cout << "The length of the hypotenuse is " << result << endl;
+
+    return 0;
+}
+
+Output:
+Enter base (x): 2
+Enter exponent (y): 3
+2 raised to the power of 3 is 8
+Enter a number (x): 64
+Square root of 64 is 8
+Enter a number (x): 27
+Cubic root of 27 is 3
+Enter side 1 (x): 3
+Enter side 2 (y): 4
+The length of the hypotenuse is 5
+
+
+Q3.C++ program to find the value of ceil,floor,fmod,trunc.
+
+*/
+#include <iostream>
+#include <cmath>  // For ceil(), floor(), fmod(), trunc()
+
+using namespace std;
+
+int main() {
+    int choice;
+    double x, y, result;
+
+    cout << "Enter a number (x): ";
+    cin >> x;
+    result = ceil(x);
+    cout << "The rounded-up value of " << x << " is " << result << endl;
+    
+
+    cout << "Enter a number (x): ";
+    cin >> x;
+    result = floor(x);
+    cout << "The rounded-down value of " << x << " is " << result << endl;
+            
+    cout << "Enter the numerator (x): ";
+    cin >> x;
+    cout << "Enter the denominator (y): ";
+    cin >> y;
+    result = fmod(x, y);
+    cout << "The remainder of " << x << " divided by " << y << " is " << result << endl;
+            
+    cout << "Enter a number (x): ";
+    cin >> x;
+    result = trunc(x);
+    cout << "The truncated value of " << x << " is " << result << endl;
+            
+
+
+    return 0;
+}
+
+output
+
+Enter a number (x): 2
+The rounded-up value of 2 is 2
+Enter a number (x): 4
+The rounded-down value of 4 is 4
+Enter the numerator (x): 10
+Enter the denominator (y): 20
+The remainder of 10 divided by 20 is 10
+Enter a number (x): 1
+The truncated value of 1 is 1
+
+
+Q4.C++ program to find the value of copysign,nan,nextafter,nexttoward.
+
+*/
+
+#include <iostream>
+#include <cmath>  
+
+using namespace std;
+
+int main() {
+    double x, y, result;
+    
+    cout << "Enter number x: ";
+    cin >> x;
+    cout << "Enter number y: ";
+    cin >> y;
+    result = copysign(x, y);
+    cout << "copysign(" << x << ", " << y << ") = " << result << endl;
+            
+            
+    cout << "Enter a string (for NaN generation): ";
+    string s;
+    cin >> s;
+    result = nan(s.c_str());
+    cout << "Generated NaN: " << result << endl;
+            
+            
+    cout << "Enter number x: ";
+    cin >> x;
+    cout << "Enter number y: ";
+    cin >> y;
+    result = nextafter(x, y);
+    cout << "nextafter(" << x << ", " << y << ") = " << result << endl;
+            
+    cout << "Enter number x: ";
+    cin >> x;
+    cout << "Enter number y (precision target): ";
+    cin >> y;
+    result = nexttoward(x, y);
+    cout << "nexttoward(" << x << ", " << y << ") = " << result << endl;
+            
+
+    return 0;
+}
+
+Output:
+Enter number x: 6
+Enter number y: -7
+copysign(6, -7) = -6
+Enter a string (for NaN generation): string
+Generated NaN: nan
+Enter number x: 2.0
+Enter number y: 3.0
+nextafter(2, 3) = 2
+Enter number x: 1.0
+Enter number y (precision target): 2.0
+nexttoward(1, 2) = 1
+
+
+.C++ program to find the value of fdim,fmax,fmin.
+
+*/
+#include <iostream>
+#include <cmath> 
+using namespace std;
+
+int main() {
+    // Declare variables to store user input
+    double num1, num2;
+
+    // Ask user for input
+    cout << "Enter the first number: ";
+    cin >> num1;
+    
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    // Calculate positive difference, maximum and minimum values
+    double positive_diff = fdim(num1, num2); // fdim function computes positive difference
+    double maximum_value = fmax(num1, num2); // fmax function computes maximum value
+    double minimum_value = fmin(num1, num2); // fmin function computes minimum value
+
+    // Output the results
+    cout << "Positive difference (fdim): " << positive_diff << endl;
+    cout << "Maximum value (fmax): " << maximum_value << endl;
+    cout << "Minimum value (fmin): " << minimum_value << endl;
+
+    return 0;
+}
+/*
+Output:
+Enter the first number: 5
+Enter the second number: 4
+Positive difference (fdim): 1
+Maximum value (fmax): 5
+Minimum value (fmin): 4
+*/
+
+C++ program to find the value of abs,fma,remainder.
+
+#include <iostream>
+#include <cmath>  
+using namespace std;
+
+int main() {
+    double num1, num2, num3,x;
+
+    cout << "Enter the first number (num1): ";
+    cin >> num1;
+    
+    cout << "Enter the second number (num2): ";
+    cin >> num2;
+
+    cout << "Enter the third number (num3): ";
+    cin >> num3;
+    cout << "Enter the third number x ";
+    cin>>x;
+    double absolute_value = abs(x);  
+    
+    double multiply_add = fma(num1, num2, num3);  
+    
+    double remainder_value = remainder(num1, num2);  
+    
+    cout << "Absolute value (abs) of num1: " << absolute_value << endl;
+    cout << "Multiply-add (fma): " << multiply_add << endl;
+    cout << "Remainder (remainder) when num1 is divided by num2: " << remainder_value << endl;
+
+    return 0;
+}
+/*
+Output:
+Enter the first number (num1): 8
+Enter the second number (num2): 4
+Enter the third number (num3): 3
+Enter the third number x -5
+Absolute value (abs) of num1: 5
+Multiply-add (fma): 35
+Remainder (remainder) when num1 is divided by num2: 0
+*/
