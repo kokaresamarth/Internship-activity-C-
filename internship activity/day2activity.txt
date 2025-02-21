@@ -1,0 +1,231 @@
+/*Intership activity - <Day 2>
+  Project: Rapido Vision Measuring System.
+  Task: <C++ activity>
+  Compiler:Windows 10
+  IDE:VS Code
+  Author:YESWANTHRAM R 
+
+Print the Array
+Given the current program
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+    string oceans[] = {"Pacific", "Atlantic", "Indian", "Arctic", "Southern"};
+  
+    //add code below this line
+      for(int i = 0; i < 5; i++) {
+        cout << oceans[i] << endl;
+    }
+  
+  
+    //add code above this line
+  
+    return 0;
+  
+}
+
+Complete the program so that the resulting output will be:
+
+Pacific
+Atlantic
+Indian
+Arctic
+Southern
+
+
+
+Array to Vector
+You want to convert the oceans array into a vector. Here is what you have so far:
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+  
+  vector<string> oceans(0);
+  
+  //add code below this line
+    oceans.push_back("Pacific");
+    oceans.push_back("Atlantic");
+    oceans.push_back("Indian");
+    oceans.push_back("Arctic");
+    oceans.push_back("Southern");
+
+  //add code above this line
+  
+  for (auto a : oceans) {
+    cout << a << endl;
+  }
+  
+  return 0;
+  
+}
+Complete the program so that when printing oceans, you get the output:
+
+Pacific
+Atlantic
+Indian
+Arctic
+Southern
+
+Row and Column Sums
+Given the current code:
+
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv) {
+  
+    int a = atoi((argv[1]));
+    int b = atoi((argv[2]));
+    int c = atoi((argv[3]));
+    int d = atoi((argv[4]));
+    int nums[3][3];
+    
+    //add code below this line
+    nums[0][0] = a;
+    nums[0][1] = b;
+    nums[0][2] = a + b;
+    
+    nums[1][0] = c;
+    nums[1][1] = d;
+    nums[1][2] = c + d;
+    
+    nums[2][0] = a + c;   
+    nums[2][1] = b + d;  
+    nums[2][2] = (a + b) + (c + d) + (a + c) + (b + d);
+
+
+    //add code above this line
+    
+    int row = sizeof(nums) / sizeof(nums[0]);
+    int col = sizeof(nums[0]) / sizeof(int);
+    
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            if (j == 2) {
+                cout << nums[i][j] << endl;
+            }
+            else {
+                cout << nums[i][j] << " ";
+            }
+        }
+    }
+    
+    return 0;
+  
+}
+
+output
+
+1 2 3
+3 4 7
+4 6 20
+
+// 1 + 2 = 3 (first row's sum)
+// 3 + 4 = 7 (second row's sum)
+// 1 + 3 = 4 (first column's sum)
+// 2 + 4 = 6 (second column's sum)
+// ((1+2) + (3+4) + (1+3) + (2+4)) = 20 (total sum)
+where 3 and 7 are row sums, 4 and 6 are column sums, and 20 is the total sum.
+
+
+Find the Average
+You are working to create a program that continuously 
+takes in double and integer inputs and adds them to a vector called numList. 
+If an input is not a double or an integer type, then 
+the program will iterate through numList, add each value to the total, and 
+calculate the average (avg). 
+Finally, the average is printed with a newline. 
+Here is what you have so far:
+
+
+#include <iostream>
+#include <vector>
+#include <limits>  // To handle invalid input properly
+using namespace std;
+
+int main() {
+    double input;
+    double total = 0;
+    double avg = 0;
+    vector<double> numList;  // To store the valid numbers
+
+    cout << "Enter double or int to add to total, else find total average:" << endl;
+
+    while (cin >> input) {  // Continue reading input as long as it's a valid number
+        numList.push_back(input);  // Add valid input to vector
+        cout << "Enter double or int to add to total, else find total average:" << endl;
+    }
+
+    // Handle invalid input (non-numeric) that causes the loop to break
+    if (numList.empty()) {
+        avg = 0;  // If no valid input, average is 0
+    } else {
+        // Calculate the total sum
+        for (double num : numList) {
+            total += num;
+        }
+
+        // Calculate average
+        avg = total / numList.size();
+    }
+
+    cout << avg << endl;  // Output the average
+    return 0;
+}
+
+Sample Outputs:
+
+Sample 1
+
+Enter double or int to add to total, else find total average:
+1
+Enter double or int to add to total, else find total average:
+2
+Enter double or int to add to total, else find total average:
+3
+Enter double or int to add to total, else find total average:
+x
+2
+Sample 2
+
+
+Print Backwards
+You are writing a program that adds three string arguments into a vector called reverse.
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>  // Include to use reverse
+using namespace std;
+
+int main(int argc, char** argv) {
+  
+    vector<string> reverse(0);
+    reverse.push_back(argv[1]);
+    reverse.push_back(argv[2]);
+    reverse.push_back(argv[3]);
+    
+    // add code below this line
+    reverse(reverse.begin(), reverse.end());  // Reverse the vector in-place
+    // add code above this line
+    
+    for (auto a : reverse) {
+        cout << a << endl;
+    }
+    
+    return 0;
+}
+
+output
+
+Compile and test with 1,2,3
+
+3
+2
+1
